@@ -1,0 +1,6 @@
+scikit-learn
+polygon-api-client
+numpy
+pandas
+Theano-PyMC==1.1.2
+pymc3==3.11.5
