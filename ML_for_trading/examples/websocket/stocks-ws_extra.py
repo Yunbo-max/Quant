@@ -61,23 +61,6 @@ PLTR           52                  147,743.93          86456               396,8
 
 Current Time: 2023-08-25 08:27:14.602075 | App Uptime: 04:49:40 | Time taken: 0.003417 seconds
 """
-from polygon import WebSocketClient
-from polygon.websocket.models import WebSocketMessage
-from typing import List
-
-# Connect to Polygon.io
-client = WebSocketClient()
-
-# Subscribe to all trades
-client.subscribe("T.*")
-
-def handle_msg(msgs: List[WebSocketMessage]):
-    for m in msgs:
-        print(m)
-
-# Print messages
-client.run(handle_msg)
-
 
 app_start_time = time.time()
 string_map: Dict[str, int] = {}
