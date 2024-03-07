@@ -2,7 +2,38 @@
 # @Author: Yunbo
 # @Date:   2024-03-07 09:57:46
 # @Last Modified by:   Yunbo
-# @Last Modified time: 2024-03-07 10:01:27
+# @Last Modified time: 2024-03-07 10:10:33
+
+
+"""This Python script appears to implement a Monte Carlo simulation for evaluating the performance of a stock portfolio based on Mean-Variance Portfolio Theory (MPT). Here's a breakdown of the key components and operations:
+
+Data Retrieval: Historical price data for selected stocks (in this case, AAPL, MSFT, and AMZN) is obtained using the Yahoo Finance API (yfinance library). The data is retrieved for a specified time period.
+
+Portfolio Setup:
+
+The script sets up the portfolio with selected stocks (portfolio variable).
+Initial weights for each stock are randomly assigned (weights variable) and normalized to ensure they sum up to 1.
+Mean and Covariance Calculation: The mean returns and covariance matrix of the selected stocks are calculated using historical price data. These are essential inputs for MPT.
+
+Monte Carlo Simulation:
+
+The script conducts a Monte Carlo simulation to forecast the performance of the portfolio over a specified time horizon (T). The simulation is repeated mc_sims times.
+For each simulation:
+Random normal variables (Z) are generated to simulate daily returns for each stock. These random variables are independent.
+A Cholesky decomposition of the covariance matrix is performed to generate correlated daily returns for the portfolio.
+The portfolio value is calculated based on the cumulative product of the weighted sum of daily returns.
+The resulting portfolio values for each simulation are stored in portfolio_sims.
+Visualization: The script plots the portfolio values over the simulation period (Days) to visualize the potential portfolio performance under different scenarios.
+
+Risk Metrics (commented out):
+
+The script includes functions for calculating Value at Risk (VaR) and Conditional Value at Risk (CVaR) for the simulated portfolio returns. However, these calculations are currently commented out.
+The overall goal of this script is to assess the potential future performance of a stock portfolio using a Monte Carlo simulation approach, taking into account historical returns and their covariance structure. The visualization provides insights into the range of possible outcomes for the portfolio over the specified time horizon.
+"""
+
+
+
+
 import math
 import numpy as np
 import pandas as pd
